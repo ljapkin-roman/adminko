@@ -2,10 +2,14 @@
 <head>
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 	<script type ="text/javascript" src='js/workSelect.js'>
+	<script type ="text/javascript" src='js/chosen.jquery.js'>
+	<script type ="text/javascript" src='js/prism.js'>
+	<script type ="text/javascript" src='js/init.js'>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
 
 </head>
 <body>
+	<?php echo getcwd(); ?>
 	<h1> Register form </h1>
 	
 	<h1> Register form </h1>
@@ -24,7 +28,7 @@
 	  <label for="email">email</label>
 	  <input id="email" type="email" name="email" required>
 	
-		<select name="district" id="district" onchange="selectDistrict(this)">
+		<select name="district" id="district" class="chosen-select" onchange="selectDistrict(this)">
 		  <option value="">Select a person:</option>
 		  <option value="Вінницька">Вінницька</option>
 		  <option value="Волинська">Волинська</option>
