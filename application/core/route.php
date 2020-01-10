@@ -22,7 +22,6 @@ class Route
         $controller_name = 'Controller_'.$controller_name;
         $action_name = 'action_'.$action_name;
 
-        $model_file = strtolower($model_name).'.php';
         $model_path = "application/models/".$model_file;
         if(file_exists($model_path))
         {

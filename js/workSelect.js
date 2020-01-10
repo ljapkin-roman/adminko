@@ -42,12 +42,12 @@ function removeOptions(selectbox)
 	}
 
 	function selectDistrict(str) {
-	str = str.options[str.selectedIndex].innerHTML;
-    if (str == "") {
+		name_distr = str.options[str.selectedIndex].innerHTML;
+    if (name_distr == "") {
         document.getElementById("txtHint").innerHTML = "";
         return;
     } else {
-		let baseUrl = "http://localhost:80/getdata?dist=" + str + " область";
+		let baseUrl = "http://localhost:80/district/getdata/dist=" + name_distr + " область";
 		async function getDistrict(baseUrl) {
 			let response = await fetch(baseUrl);
 			let json = await response.json();
