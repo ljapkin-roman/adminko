@@ -17,6 +17,10 @@ class Route
         {
             $action_name = $routes[2];
         }
+        if ( !empty($routes[3]) )
+        {
+            $arg_function = $routes[3];
+        }
 
         $model_name = 'Model_'.$controller_name;
         $controller_name = 'Controller_'.$controller_name;
@@ -44,7 +48,7 @@ class Route
        
         if(method_exists($controller, $action))
         {
-            $controller->$action();
+            $controller->$action($arg_function);
         }
         else
         {

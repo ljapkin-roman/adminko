@@ -21,7 +21,6 @@ function removeOptions(selectbox)
 	function createTown(data) {
 		let town = document.getElementById('town');
 		removeOptions(town);
-	    console.log(data);	
 		town.options[town.options.length] = new Option("Выберите населеный пункт","");
 		for(let k in data) {
 			town.options[town.options.length] = new Option(  data[k], data[k]);
@@ -47,7 +46,7 @@ function removeOptions(selectbox)
         document.getElementById("txtHint").innerHTML = "";
         return;
     } else {
-		let baseUrl = "http://localhost:80/district/getdata/dist=" + name_distr + " область";
+		let baseUrl = "http://localhost:80/district/getdata/" + name_distr + "_область";
 		async function getDistrict(baseUrl) {
 			let response = await fetch(baseUrl);
 			let json = await response.json();
