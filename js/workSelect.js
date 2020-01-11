@@ -46,7 +46,7 @@ function removeOptions(selectbox)
         document.getElementById("txtHint").innerHTML = "";
         return;
     } else {
-		let baseUrl = "http://localhost:80/district/getdata/" + name_distr + "_область";
+		let baseUrl = "http://localhost:80/district/getdata/" + name_distr + " область";
 		async function getDistrict(baseUrl) {
 			let response = await fetch(baseUrl);
 			let json = await response.json();
