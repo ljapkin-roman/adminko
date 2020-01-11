@@ -20,6 +20,8 @@ class Route
         if ( !empty($routes[3]) )
         {
             $arg_function = $routes[3];
+	    echo $arg_function;
+	    echo mb_detect_encoding($arg_function, "UTF-8");
         }
 
         $model_name = 'Model_'.$controller_name;
