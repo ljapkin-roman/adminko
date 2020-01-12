@@ -1,3 +1,4 @@
+let villageOfArea;
 function removeOptions(selectbox)
 	{
 		var i;
@@ -29,15 +30,7 @@ function removeOptions(selectbox)
 
 	function changeTown(str) {
 		area = str.options[str.selectedIndex].innerHTML;
-		let district = document.getElementById('district');
-		district = district.options[district.selectedIndex].innerHTML;
-		let baseUrl = "http://localhost:80/getdata?dist=" + district + "&area=" + area;
-		async function getTownOfArea(baseUrl) {
-			let response = await fetch(baseUrl);
-			let json = await response.json();
-			createTown(json.town);
-		}
-		let start = getTownOfArea(baseUrl);
+        createTown(villageOfArea[area]);
 	}
 
 	function selectDistrict(str) {
@@ -50,9 +43,9 @@ function removeOptions(selectbox)
 		async function getDistrict(baseUrl) {
 			let response = await fetch(baseUrl);
 			let json = await response.json();
-            console.log(json);
-			createArea(json.area);
-			createTown(json.town);
+			createArea(json.areas);
+			createTown(json.towns);
+            villageOfArea = json.villageOfArea;
 		}
 		let start = getDistrict(baseUrl);
     }
