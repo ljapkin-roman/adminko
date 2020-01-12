@@ -43,6 +43,7 @@ function removeOptions(selectbox)
 		async function getDistrict(baseUrl) {
 			let response = await fetch(baseUrl);
 			let json = await response.json();
+            console.log(json);
 			createArea(json.areas);
 			createTown(json.towns);
             villageOfArea = json.villageOfArea;

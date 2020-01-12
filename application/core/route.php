@@ -49,7 +49,12 @@ class Route
        
         if(method_exists($controller, $action))
         {
-            $controller->$action($arg_function);
+            if(isset($arg_function)) {
+                $controller->$action($arg_function);
+            } else {
+                $controller->$action();
+            }
+            
         }
         else
         {
