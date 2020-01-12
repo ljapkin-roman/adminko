@@ -2,15 +2,12 @@
 class Model_Save extends Model
 {
     public $errors = [];
-    public $view;
 
-    public function __construct() {
-        $this->view = new View();
-    }
     public function check($post) {
+        //$this->isExist($post);
         foreach ($post as $key => $value) {
             if ($value === '' and $key !== 'area') {
-                $this->errors[$key][] ="Не может быть пустым";
+                $this->errors[$key] ="Не может быть пустым";
             }
         }
 
@@ -18,9 +15,13 @@ class Model_Save extends Model
            $this->errors['email'][] = "Не валидный емаил";
         }
         if ($this->hasValues($this->errors)) {
-            $this->view->generate('main_view.php', 'template_view.php');
+            $output = [];
+            $output['data'] = $post;
+            $output['errors'] = $this->errors;
+            return $output;
         }else {
             $this->save($post);
+            return "successful";
         }
 
     }
@@ -46,5 +47,12 @@ class Model_Save extends Model
                 return true;
         }
         return false;
+    }
+
+    public function isExist($post) {
+        $email = $this->db->prepare("SELECT * FROM AddressUser WHERE email=:email");
+        $email->bindParam(':email', $post['email']);
+        $email->execute();
+        print_r($email->fetch());
     }
 }

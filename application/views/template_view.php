@@ -16,14 +16,15 @@
 	<p> 2) Если живете в городе можете выбрать сразу город из формы "Выберите населеный пункт" </p>
 	<p> 3) Если живете в районе , выбираете свой район  </p>
 	<p> 4) Выберите населеный пункт, там будут показаны населенные пункты только этого района  </p>
-	<p> Форма может немного подтормаживать , как работает с удаленной базой  </p>
 	<form action="/save/sent" method="post">
 		
 	  <label for="FIO">FIO</label>
-	  <input id="FIO" type="text" name="name" required>
+      <input id="FIO" type="text" name="name" value="<?php echo $data['name']; ?>" required>
+      <?php if (isset($errors['name'])) { print_r($errors['name']);} ?>
 		
 	  <label for="email">email</label>
-	  <input id="email" type="email" name="email" required>
+      <input id="email" type="email" name="email" value="<?php echo $data['email']; ?>"required>
+      <?php if (isset($errors['email'])) { print_r($errors['email']);} ?>
 	
 		<select name="district" id="district" class="chosen-select district" onchange="selectDistrict(this)">
 		  <option value="">Select a person:</option>
@@ -53,15 +54,18 @@
 		  <option value="Чернігівська">Чернігівська</option>
 		  <option value="Автономна Республіка Крим">Автономна Республіка Крим</option>
   		</select>	
+      <?php if (isset($errors['district'])) { print_r($errors['district']);} ?>
 
 		
 		<select name="town" id="town"   onchange="">
 		  <option value="">Выбирете населеный пункт:</option>
   		</select>	
+      <?php if (isset($errors['town'])) { print_r($errors['town']);} ?>
 
 		<select name="area" id="area"  onchange="changeTown(this)">
 		  <option value="">Выберите район:</option>
   		</select>	
+      <?php if (isset($errors['area'])) { print_r($errors['area']);} ?>
 
 	  <input type="submit" value="Save">
 	</form>

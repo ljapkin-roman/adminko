@@ -7,10 +7,17 @@ class Controller_Save extends Controller
 
     public function __construct() {
         $this->view = new View();
+        $this->model = new Model_Save();
     }
 
     public function action_sent() {
-        $this->model->check($_POST);
+        $output = $this->model->check($_POST);
+        if ($output === "successful") {
+            $this->view->generate('main_view.php', 'successful.php');
+        } else {
+            $this->view->generate('main_view.php', 'template_view.php', $output['data'], $output['errors']);
+        }
+        
     }
 
     
