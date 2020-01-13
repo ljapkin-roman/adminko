@@ -29,7 +29,7 @@
       } ?>
     
         <select name="district" id="district" class="chosen-select district" onchange="selectDistrict(this)">
-          <option value="">Select a person:</option>
+          <option value="">Выберите область:</option>
           <option value="Вінницька">Вінницька</option>
           <option value="Волинська">Волинська</option>
           <option value="Дніпропетровська">Дніпропетровська</option>
