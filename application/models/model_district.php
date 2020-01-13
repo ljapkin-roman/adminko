@@ -36,7 +36,8 @@ class Model_District extends Model
     }
 
 
-    public function getArea($addresses){
+    public function getArea($addresses)
+    {
         $area = [];
         foreach ($addresses as $address) {
             $splitAddress = explode(',', $address);
@@ -51,7 +52,8 @@ class Model_District extends Model
     }
 
 
-    public function getTown($addresses) {
+    public function getTown($addresses)
+    {
         $list_town = [];
         foreach ($addresses as $address) {
             $nameTown = explode(',', $address)[0];

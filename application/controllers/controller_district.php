@@ -3,7 +3,8 @@ class Controller_District extends Controller
 {
     public $model;
 
-    function __construct() {
+    function __construct()
+    {
         $this->model = new Model_District();
     }
     
@@ -11,6 +12,6 @@ class Controller_District extends Controller
     {
         $arg_function = urldecode($arg_function);
         $output = $this->model->getData($arg_function);
-	    print_r(json_encode($output, JSON_UNESCAPED_UNICODE));
+        print_r(json_encode($output, JSON_UNESCAPED_UNICODE));
     }
 }
