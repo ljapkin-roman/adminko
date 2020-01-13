@@ -10,7 +10,7 @@ class Controller_District extends Controller
     function action_getdata($arg_function=0)
     {
         $arg_function = urldecode($arg_function);
-        $this->model->getData($arg_function);
-	    //print_r(json_encode($arg_function, JSON_UNESCAPED_UNICODE));
+        $output = $this->model->getData($arg_function);
+	    print_r(json_encode($output, JSON_UNESCAPED_UNICODE));
     }
 }

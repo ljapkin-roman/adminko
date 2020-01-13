@@ -16,7 +16,7 @@ class Model_District extends Model
         $data['areas'] = $listAreas;
         $data['towns'] = $listTowns;
         $data['villageOfArea'] = $villageOfArea;
-        print_r(json_encode($data, JSON_UNESCAPED_UNICODE));
+        return $data;
     }
 
     public function getVillage($list_address, $areas)
